@@ -1,12 +1,15 @@
-.table{
-  width:100%;
+.table {
+  width: 100%;
 }
-.header {
-  width: 20%;
+
+.visible {
+  color: red;
 }
-.visible{
- color: red;
-}
-.hidden{
+
+.hidden {
   visibility: hidden;
+}
+
+.select {
+  width: 100%;
 }

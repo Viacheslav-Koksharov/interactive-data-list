@@ -1,36 +1,24 @@
-
-.button {
-  align-items: center;
-  justify-content: center;
-  border: 0;
-  outline: 0;
-  border-radius: 4px;
-  cursor: pointer;
-  box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.05);
-  font: inherit;
-  text-transform: uppercase;
-  user-select: none;
-  transition: background-color 200ms ease-in-out;
-  z-index: 100;
-}
-.item{
+.item {
   cursor: pointer;
   border-spacing: 15px;
   padding: 15px;
 }
-.item:hover{
+
+.item:hover {
   background-color: rgb(196, 193, 193);
 }
-.input{
+
+.input {
   background-color: transparent;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    padding: 5px 0px;
-    border: none;
-    border-bottom: 1px solid transparent;
-    outline: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 5px 0px;
+  border: none;
+  border-bottom: 1px solid transparent;
+  outline: none;
 }
+
 .input:focus {
   border-bottom: 1px solid black;
 }
@@ -38,6 +26,10 @@
 .selected {
   color: antiquewhite;
   background-color: grey;
+}
+
+.selectedInput {
+  color: antiquewhite;
 }
 
 .range {
@@ -69,4 +61,19 @@
 
 .rangeOff::-webkit-slider-thumb {
   background: #000000;
+}
+
+.button {
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: 0;
+  background-color: transparent;
+  cursor: pointer;
+  box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.05);
+  font: inherit;
+  text-transform: uppercase;
+  user-select: none;
+  transition: background-color 200ms ease-in-out;
+  z-index: 100;
 }

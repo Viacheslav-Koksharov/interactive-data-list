@@ -1,30 +1,48 @@
-import classNames from "classnames";
+import delImg from '../../img/del.svg';
+import addImg from '../../img/add.svg';
+import classNames from 'classnames';
 import s from './Header.module.css';
 
-const Header = ({ onCreate, onDelete,length }) => {
+const Header = ({ onCreate, onDelete, length }) => {
   return (
     <>
-        <thead>
-          <tr className={s.header}>
-            <th >Status</th>
-            <th >Product</th>
-            <th >ID</th>
-            <th >Name</th>
-            <th>
-              <button onClick={onCreate}>+</button>
-            </th>
-          </tr>
-          <tr>
-            <th><select disabled></select> </th>
-            <th><select disabled></select></th>
-            <th><select disabled></select></th>
-            <th><select ></select></th>
-            <th>
-              <button className={classNames(length >0? s.visible:s.hidden)} onClick={onDelete}>-</button>
-            </th>
-          </tr>
-        </thead>
+      <thead>
+        <tr>
+          <th>Статус</th>
+          <th>Товар</th>
+          <th>ID</th>
+          <th>Название</th>
+          <th>
+            <button onClick={onCreate}>
+              <img src={addImg} alt='' />
+            </button>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            <select className={s.select} disabled></select>{' '}
+          </th>
+          <th>
+            <select className={s.select} disabled></select>
+          </th>
+          <th>
+            <select className={s.select} disabled></select>
+          </th>
+          <th>
+            <select className={s.select}></select>
+          </th>
+          <th>
+            <button
+              className={classNames(length > 0 ? s.visible : s.hidden)}
+              onClick={onDelete}
+            >
+              <img src={delImg} alt='' />
+            </button>
+          </th>
+        </tr>
+      </thead>
     </>
   );
 };
+
 export default Header;
