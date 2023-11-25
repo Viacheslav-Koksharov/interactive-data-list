@@ -1,0 +1,41 @@
+
+.button {
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  outline: 0;
+
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.05);
+  font: inherit;
+  text-transform: uppercase;
+  user-select: none;
+  transition: background-color 200ms ease-in-out;
+}
+.item{
+  cursor: pointer;
+  border-spacing: 15px;
+  padding: 15px;
+}
+.item:hover{
+  background-color: darkgray;
+}
+.input{
+  background-color: transparent;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 5px 0px;
+    border: none;
+    border-bottom: 1px solid transparent;
+    outline: none;
+}
+.input:focus {
+  border-bottom: 1px solid black;
+}
+
+.selected {
+  color: antiquewhite;
+  background-color: grey;
+}
