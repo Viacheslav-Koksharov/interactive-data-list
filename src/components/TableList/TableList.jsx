@@ -52,20 +52,22 @@ const TableList = () => {
       })
   );
 
-  const deleteItem = id => {
+const selectedItemlength= itemsList.reduce((selected, item) => selected + item.isSelect, 0);
+
+const deleteItem = id => {
     setItemsList(itemsList.filter(item => item.id !== id));
   };
 
   const deleteSelectedItem = () => {
     if (window.confirm('Are you sure?')) {
       setItemsList(itemsList.filter((item) => !item.isSelect));
-    }
+    } 
   };
 console.log(itemsList)
   return (
     <>
       <table className={s.table}>
-        <Header onCreate={addItem} onDelete={deleteSelectedItem} />
+        <Header onCreate={addItem} onDelete={deleteSelectedItem} length={selectedItemlength}/>
         {itemsList?.map(({ id, isActive,isSelect,name, product, uuid }) => (
           <TableItem
             key={uuid}

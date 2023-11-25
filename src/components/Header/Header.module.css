@@ -4,3 +4,9 @@
 .header {
   width: 20%;
 }
+.visible{
+ color: red;
+}
+.hidden{
+  visibility: hidden;
+}

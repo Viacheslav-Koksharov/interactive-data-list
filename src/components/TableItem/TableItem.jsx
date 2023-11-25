@@ -1,14 +1,16 @@
-import React,{ useRef} from 'react';
+import React,{useState, useRef} from 'react';
 import classNames from "classnames";
 import s from './TableItem.module.css';
 
 const TableItem = ({ uuid, product,isActive,isSelect, onDelete, onChangeItem,onSelect}) => {
   const nameInput = useRef(null);
   const IdInput = useRef(null);
+  const [isEnabled, setIsEnabled] = useState(true);
+
   const pressEnter = (e) => {
     if(e.key === "Enter" && nameInput.current) {     
         nameInput.current.focus();
-        IdInput.current=isActive
+        IdInput.current=isActive;
     }   
   }
 
@@ -17,10 +19,21 @@ const TableItem = ({ uuid, product,isActive,isSelect, onDelete, onChangeItem,onS
         nameInput.current.blur();
     }
   }
+
+  const changeRange = (e) => {
+    Number(e.target.value) === 0 ? setIsEnabled(false) : setIsEnabled(true)
+  }
+
   return (
     <tr key={uuid} className={classNames(s.item, isSelect && s.selected)} onClick={onSelect}>
       <td>
-        <p> +-+ </p>
+      <input
+          className={classNames(s.range, !isEnabled && s.rangeOff)}
+          type="range"
+          min={0}
+          max={100}
+          step={100}
+          onClick={changeRange}/>
       </td>
       <td>{product}</td>
       <td>
@@ -31,10 +44,10 @@ const TableItem = ({ uuid, product,isActive,isSelect, onDelete, onChangeItem,onS
             maxLength={3}
             id={uuid}
             onChange={onChangeItem}
-            disabled={isActive}
+            disabled={isActive || !isEnabled}
             pattern="\d{3}"
             onKeyUp={pressEnter}
-            className={classNames(s.input, isSelect && s.selected)}
+            className={classNames(s.input)}
             autoFocus={true}
           />
         </td>
@@ -46,10 +59,11 @@ const TableItem = ({ uuid, product,isActive,isSelect, onDelete, onChangeItem,onS
             id={uuid}
             onChange={onChangeItem}
             onKeyUp={pressEnterName}
-            className={classNames(s.input, isSelect && s.selected)}
+            className={classNames(s.input)}
+            disabled={!isEnabled}
           />
         </td>
-      <td>
+      <td >
         <button className={s.button} onClick={onDelete}>X</button>
       </td>
     </tr>

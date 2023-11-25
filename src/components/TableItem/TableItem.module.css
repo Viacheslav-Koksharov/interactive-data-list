@@ -4,7 +4,6 @@
   justify-content: center;
   border: 0;
   outline: 0;
-
   border-radius: 4px;
   cursor: pointer;
   box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.05);
@@ -12,6 +11,7 @@
   text-transform: uppercase;
   user-select: none;
   transition: background-color 200ms ease-in-out;
+  z-index: 100;
 }
 .item{
   cursor: pointer;
@@ -19,7 +19,7 @@
   padding: 15px;
 }
 .item:hover{
-  background-color: darkgray;
+  background-color: rgb(196, 193, 193);
 }
 .input{
   background-color: transparent;
@@ -38,4 +38,35 @@
 .selected {
   color: antiquewhite;
   background-color: grey;
+}
+
+.range {
+  -webkit-appearance: none;
+  width: 30%;
+  height: 20px;
+  padding: 0 5px;
+  background-color: rgb(150, 148, 148);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.range:focus {
+  outline: none;
+}
+
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  background: #ffffff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.rangeOff::-webkit-slider-thumb {
+  background: #000000;
 }

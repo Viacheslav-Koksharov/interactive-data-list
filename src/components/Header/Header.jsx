@@ -1,6 +1,7 @@
+import classNames from "classnames";
 import s from './Header.module.css';
 
-const Header = ({ onCreate, onDelete }) => {
+const Header = ({ onCreate, onDelete,length }) => {
   return (
     <>
         <thead>
@@ -19,11 +20,10 @@ const Header = ({ onCreate, onDelete }) => {
             <th><select disabled></select></th>
             <th><select ></select></th>
             <th>
-              <button onClick={onDelete}>-</button>
+              <button className={classNames(length >0? s.visible:s.hidden)} onClick={onDelete}>-</button>
             </th>
           </tr>
         </thead>
-
     </>
   );
 };
