@@ -13,7 +13,7 @@ const TableList = () => {
       id: '',
       name: '',
       isSelect: false,
-      // isActive:false
+      isActive:false
     };
     setItemsList(prevState => [item, ...prevState]);
  
@@ -30,6 +30,7 @@ const TableList = () => {
           switch (name) {
             case 'id':
               item.id = value
+              item.isActive=true
               break;
             case 'name':
               item.name = value
@@ -60,17 +61,18 @@ const TableList = () => {
       setItemsList(itemsList.filter((item) => !item.isSelect));
     }
   };
-
+console.log(itemsList)
   return (
     <>
       <table className={s.table}>
         <Header onCreate={addItem} onDelete={deleteSelectedItem} />
-        {itemsList?.map(({ id, isSelect,name, product, uuid }) => (
+        {itemsList?.map(({ id, isActive,isSelect,name, product, uuid }) => (
           <TableItem
             key={uuid}
             product={product}
             uuid={uuid}
             name={name}
+            isActive={isActive}
             isSelect={isSelect}
             onSelect={() => setSelect(id)}
             onChangeItem={e => changeItem(e)}

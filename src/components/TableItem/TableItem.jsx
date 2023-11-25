@@ -4,11 +4,11 @@ import s from './TableItem.module.css';
 
 const TableItem = ({ uuid, product,isActive,isSelect, onDelete, onChangeItem,onSelect}) => {
   const nameInput = useRef(null);
-
+  const IdInput = useRef(null);
   const pressEnter = (e) => {
     if(e.key === "Enter" && nameInput.current) {     
         nameInput.current.focus();
-
+        IdInput.current=isActive
     }   
   }
 
@@ -26,11 +26,12 @@ const TableItem = ({ uuid, product,isActive,isSelect, onDelete, onChangeItem,onS
       <td>
       <input
             type="text"
+            ref={IdInput}
             name="id"
             maxLength={3}
             id={uuid}
             onChange={onChangeItem}
-            readOnly
+            disabled={isActive}
             pattern="\d{3}"
             onKeyUp={pressEnter}
             className={classNames(s.input, isSelect && s.selected)}
